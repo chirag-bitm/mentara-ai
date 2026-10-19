@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-20T12:21:08.170846+00:00",
+  "sdk": "google-genai==2.23.0",
+  "model": "gemini-3.5-flash-lite",
+  "case_id": "technical_follow_up",
+  "max_calls": 2,
+  "actual_calls": 2,
+  "max_candidates": 1,
+  "max_output_tokens": 256,
+  "store": false,
+  "tools": false,
+  "previous_interaction_id": false,
+  "interpretation": "A tiny controlled probe, not a general latency or accuracy estimate. First text and valid JSON timestamps are exploratory; only a completed and current provider result could become production ready. No model or runtime change is implied.",
+  "runs": [
+    {
+      "method": "one_candidate_nonstream",
+      "complete_valid_ms": 2963,
+      "first_text_ms": null,
+      "first_valid_json_ms": null,
+      "candidate_count": 1,
+      "usage": {
+        "input_tokens": 393,
+        "output_tokens": 69,
+        "total_tokens": 462
+      }
+    },
+    {
+      "method": "one_candidate_stream",
+      "complete_valid_ms": 4071,
+      "first_text_ms": 2628,
+      "first_valid_json_ms": 3938,
+      "candidate_count": 1,
+      "usage": {
+        "input_tokens": 393,
+        "output_tokens": 39,
+        "total_tokens": 432
+      }
+    }
+  ]
+}

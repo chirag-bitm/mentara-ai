@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-18T12:34:53.466915+00:00",
+  "evaluation_kind": "offline_fake_provider_speculative_answer_decision_gate",
+  "production_speculative_generation_implemented": false,
+  "experimental_feature_flag_added": false,
+  "cases": [
+    {
+      "case_id": "exact_match",
+      "hidden_generation_completed": true,
+      "strictly_compatible": true,
+      "exposed_to_answer_history": false
+    },
+    {
+      "case_id": "semantic_paraphrase",
+      "hidden_generation_completed": true,
+      "strictly_compatible": false,
+      "exposed_to_answer_history": false
+    },
+    {
+      "case_id": "memory_changed",
+      "hidden_generation_completed": true,
+      "strictly_compatible": false,
+      "exposed_to_answer_history": false
+    },
+    {
+      "case_id": "provenance_changed",
+      "hidden_generation_completed": true,
+      "strictly_compatible": false,
+      "exposed_to_answer_history": false
+    },
+    {
+      "case_id": "tentative_only",
+      "hidden_generation_completed": true,
+      "strictly_compatible": false,
+      "exposed_to_answer_history": false
+    },
+    {
+      "case_id": "degraded_continuity",
+      "hidden_generation_completed": true,
+      "strictly_compatible": false,
+      "exposed_to_answer_history": false
+    },
+    {
+      "case_id": "correction_while_running",
+      "hidden_generation_completed": false,
+      "strictly_compatible": false,
+      "exposed_to_answer_history": false
+    }
+  ],
+  "provider_calls": 7,
+  "cancelled_calls": 1,
+  "strict_compatibility_rate": 0.1429,
+  "decision": "defer_speculative_answer_generation",
+  "decision_reason": "Only exact text plus unchanged session, turn, source, memory version, stable readiness, and normal continuity can be considered safe. Even this curated gate accepted only one case, while every predicted turn would add a second model call. The small real-provider benchmark measured 2.59\u20133.98 seconds; one final live turn produced useful prediction lead time, but no controlled experiment reduced authoritative answer latency. Safe net benefit is therefore not established.",
+  "feature_status": "F-045 remains planned; foundation evidence only",
+  "checks": {
+    "only_exact_full_evidence_match_is_compatible": true,
+    "semantic_paraphrase_is_discarded": true,
+    "correction_cancels_hidden_generation": true,
+    "one_active_generation_maximum": true,
+    "no_speculation_entered_answer_history": true
+  },
+  "all_checks_passed": true
+}

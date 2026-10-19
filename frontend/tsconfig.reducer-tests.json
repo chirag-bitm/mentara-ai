@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "isolatedModules": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "outDir": ".test-dist",
+    "rootDir": ".",
+    "target": "ES2022"
+  },
+  "include": [
+    "src/lib/reconnect-policy.ts",
+    "src/lib/answer-reducer.ts",
+    "src/lib/conversation-reducer.ts",
+    "src/lib/prediction-reducer.ts",
+    "src/lib/transcript-reducer.ts",
+    "src/types/transcription.ts",
+    "tests/reconnect-policy.test.ts",
+    "tests/answer-reducer.test.ts",
+    "tests/conversation-reducer.test.ts",
+    "tests/prediction-reducer.test.ts",
+    "tests/transcript-reducer.test.ts"
+  ],
+  "exclude": ["node_modules"]
+}

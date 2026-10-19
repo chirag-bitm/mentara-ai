@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "checkpoint_date_utc": "2026-09-19",
+  "model": "gemini-3.5-flash-lite",
+  "api": "Gemini Interactions API",
+  "sdk": "google-genai==2.23.0",
+  "thinking_level": "minimal",
+  "max_output_tokens": 512,
+  "stateless": true,
+  "tools": false,
+  "controlled_benchmark": {
+    "requests": 4,
+    "successes": 4,
+    "suppressed_ordinary_statements": 1,
+    "latency_ms": [3975, 2943, 2588, 2642],
+    "median_latency_ms": 2792.5,
+    "curated_top1_anchor_useful": 4,
+    "curated_topk_anchor_useful": 4,
+    "input_tokens": 1658,
+    "output_tokens": 571,
+    "total_tokens": 2229,
+    "estimated_total_cost_usd": 0.0019249
+  },
+  "live_microphone_observation": {
+    "turn_sequence": 7,
+    "prediction_attempts": 2,
+    "ready_before_finalization_observed": false,
+    "normal_continuity": true,
+    "authoritative_question_detected": true,
+    "authoritative_answer_completed": true,
+    "cancelled_request_cost_known": false,
+    "next_step": "Verify the four-second cancellation cooldown on a short Windows live recheck"
+  },
+  "live_microphone_recheck_2026_09_20": {
+    "automated_gate": {
+      "backend_tests_passed": 389,
+      "frontend_tests_passed": 28,
+      "lint_typecheck_production_build_passed": true,
+      "paid_benchmark_rerun": false
+    },
+    "normal_connection_observed": true,
+    "normal_continuity_observed": true,
+    "normal_session_turns": [
+      {
+        "turn_sequence": 2,
+        "prediction_attempt_count": 1,
+        "outcome_state": "scheduled",
+        "ready_before_finalization": false
+      },
+      {
+        "turn_sequence": 3,
+        "prediction_attempt_count": 1,
+        "outcome_state": "scheduled",
+        "ready_before_finalization": false,
+        "authoritative_question_detected": true,
+        "authoritative_answer_completed": true,
+        "question_detected_to_first_text_ms": 3641
+      }
+    ],
+    "cumulative_normal_session_cancelled_call_count_after_turn_3": 2,
+    "normal_session_prediction_ready_events_in_supplied_trace": 0,
+    "cancelled_request_cost_known": false,
+    "interpretation": "A new partial invalidated each first in-flight prediction. The cooldown kept normal-session attempts to one per turn; no live ready prediction was observed. The original continuity-degraded episode is distinct from this normal-connection recheck."
+  },
+  "final_live_microphone_recheck_2026_10_18": {
+    "automated_gate": {
+      "backend_tests_passed": 445,
+      "frontend_tests_passed": 28,
+      "lint_typecheck_production_build_passed": true,
+      "paid_benchmark_rerun": false
+    },
+    "normal_connection_observed": true,
+    "normal_continuity_observed": true,
+    "prediction_ready_observed": true,
+    "candidate_count": 3,
+    "prediction_request_to_ready_ms": 3593,
+    "compatible_extension_count": 7,
+    "prediction_ready_before_turn_final_ms": 2344,
+    "material_correction_cleared_prediction": true,
+    "stale_prediction_reappeared": false,
+    "general_question_answered_directly": true,
+    "refresh_alone_created_provider_call": false,
+    "post_refresh_authoritative_answer_count": 1,
+    "stop_released_microphone": true,
+    "unhandled_backend_exception": false,
+    "cancelled_request_cost_known": false
+  },
+  "interpretation": "The tiny controlled benchmark does not measure general accuracy. The final R6 microphone check demonstrates one useful bounded live prediction with positive lead time, safe correction clearing, replay-safe reconnect and clean Stop. It is not a calibrated latency or prediction-accuracy claim."
+}

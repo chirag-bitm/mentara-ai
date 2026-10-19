@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-18T12:34:52.790679+00:00",
+  "evaluation_kind": "offline_deterministic_no_provider_calls",
+  "configuration": {
+    "memory": {
+      "max_retained_turns": 256,
+      "max_retained_text_chars": 160000,
+      "max_entry_text_chars": 4000
+    },
+    "context": {
+      "max_recent_turns": 4,
+      "max_relevant_older_turns": 4,
+      "max_total_text_chars": 6000,
+      "max_turn_text_chars": 2000
+    }
+  },
+  "fixed_corpus": {
+    "turn_count": 300,
+    "simulated_session_minutes": 120,
+    "retained_turn_count": 256,
+    "retained_text_chars": 28218,
+    "evicted_turn_count": 44,
+    "memory_revision": 300,
+    "continuity": "degraded"
+  },
+  "character_pressure_corpus": {
+    "turn_count": 300,
+    "retained_turn_count": 160,
+    "retained_text_chars": 160000,
+    "evicted_turn_count": 140
+  },
+  "selection": {
+    "source_turn_sequence": 300,
+    "recent_turn_sequences": [
+      296,
+      297,
+      298,
+      299
+    ],
+    "relevant_older_turn_sequences": [
+      100
+    ],
+    "context_text_chars": 567,
+    "retained_to_context_char_ratio": 49.767
+  },
+  "input_growth_proxy": {
+    "method": "ceil(text_characters/4); not a provider token count",
+    "retained_memory_approx_tokens": 7055,
+    "selected_context_approx_tokens": 142,
+    "selected_fraction": 0.020094
+  },
+  "local_latency_ms": {
+    "observe_count": 300,
+    "observe_median": 0.0288,
+    "observe_p95": 0.0481,
+    "observe_max": 0.2058,
+    "assembly_count": 1000,
+    "assembly_median": 0.1409,
+    "assembly_p95": 0.2627,
+    "assembly_max": 0.8855
+  },
+  "checks": {
+    "turn_bound_respected": true,
+    "character_bound_respected": true,
+    "context_bound_respected": true,
+    "short_follow_up_has_recent_context": true,
+    "long_range_named_topic_selected": true,
+    "eviction_reported_as_degraded": true
+  },
+  "all_checks_passed": true,
+  "summary_compaction_decision": {
+    "choice": "A_deterministic_memory_sufficient_for_M5",
+    "reason": "The bounded recent/relevant planner passes the controlled M5 follow-up and topic-return checks with negligible local latency and no extra API call. Derived summarization remains a future provider-neutral hook and is not justified for M5."
+  }
+}

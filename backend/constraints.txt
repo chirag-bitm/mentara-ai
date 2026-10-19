@@ -1,0 +1,7 @@
+# Compatibility-sensitive direct dependency verified during M4.
+#
+# Runtime requirement ranges remain in requirements.txt. This narrow constraint
+# prevents silent provider-SDK drift without freezing every platform-dependent
+# transitive package. Update only after provider adapter tests and the complete
+# automated gate pass against the proposed version.
+google-genai==2.23.0

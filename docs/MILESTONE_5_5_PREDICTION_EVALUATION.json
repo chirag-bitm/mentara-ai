@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-18T12:34:53.312779+00:00",
+  "evaluation_kind": "offline_deterministic_fake_provider_pipeline",
+  "corpus_file": "MILESTONE_5_5_PREDICTION_EVALUATION_CORPUS.json",
+  "corpus_case_count": 11,
+  "interpretation_warning": "This measures deterministic Mentara trigger, context, lifecycle, and race behavior on a small named corpus. Scripted candidates must not be described as general model prediction accuracy.",
+  "quality": {
+    "prediction_expected_cases": 8,
+    "suppression_expected_cases": 3,
+    "unnecessary_prediction_case_rate": 0.0,
+    "top1_anchor_usefulness_rate": 1.0,
+    "topk_anchor_usefulness_rate": 1.0
+  },
+  "calls": {
+    "total_provider_calls": 11,
+    "mean_calls_per_turn": 1,
+    "max_calls_for_one_turn": 2
+  },
+  "lead_time_ms": {
+    "count": 8,
+    "median": 1000.0,
+    "minimum": 1000,
+    "maximum": 1000
+  },
+  "local_observation_overhead_ms": {
+    "count": 14,
+    "median": 0.06,
+    "p95": 0.1681,
+    "maximum": 0.2265
+  },
+  "context": {
+    "maximum_selected_chars": 132,
+    "configured_max_chars": 3200
+  },
+  "cost_proxy": {
+    "method": "ceil-like characters/4 proxy; not provider token accounting",
+    "input_token_proxy": 5034,
+    "output_token_proxy": 116,
+    "gemini_3_5_flash_lite_standard_usd_per_million_input": 0.3,
+    "gemini_3_5_flash_lite_standard_usd_per_million_output": 2.5,
+    "estimated_corpus_cost_usd": 0.0018002,
+    "pricing_as_of": "2026-09-13",
+    "pricing_source": "https://ai.google.dev/gemini-api/docs/pricing"
+  },
+  "stale_race": {
+    "provider_calls": 2,
+    "cancelled_calls": 1,
+    "stale_discard_count": 1,
+    "latest_candidate": "Why DynamoDB?",
+    "max_active_provider_calls": 1,
+    "pending_tasks_after_cleanup": 0
+  },
+  "cases": [
+    {
+      "case_id": "technical_follow_up",
+      "category": "technical_follow_up",
+      "prediction_expected": true,
+      "provider_calls": 2,
+      "trigger_reasons": [
+        "eligible",
+        "eligible"
+      ],
+      "top1_anchor_useful": true,
+      "topk_anchor_useful": true,
+      "ready_revision_count": 2,
+      "final_readiness": "stable",
+      "candidate_change_observed": false,
+      "consistent_revision_count": 2,
+      "lead_time_before_final_ms": 1000,
+      "max_context_chars": 105,
+      "prompt_chars": 3519,
+      "output_chars": 152,
+      "observe_overhead_ms": [
+        0.168131,
+        0.113854
+      ],
+      "max_active_provider_calls": 1,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "behavioral_follow_up",
+      "category": "behavioral_general_follow_up",
+      "prediction_expected": true,
+      "provider_calls": 1,
+      "trigger_reasons": [
+        "eligible"
+      ],
+      "top1_anchor_useful": true,
+      "topk_anchor_useful": true,
+      "ready_revision_count": 1,
+      "final_readiness": "tentative",
+      "candidate_change_observed": false,
+      "consistent_revision_count": 1,
+      "lead_time_before_final_ms": 1000,
+      "max_context_chars": 89,
+      "prompt_chars": 1754,
+      "output_chars": 48,
+      "observe_overhead_ms": [
+        0.057928
+      ],
+      "max_active_provider_calls": 1,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "topic_return",
+      "category": "topic_return",
+      "prediction_expected": true,
+      "provider_calls": 1,
+      "trigger_reasons": [
+        "eligible"
+      ],
+      "top1_anchor_useful": true,
+      "topk_anchor_useful": true,
+      "ready_revision_count": 1,
+      "final_readiness": "tentative",
+      "candidate_change_observed": false,
+      "consistent_revision_count": 1,
+      "lead_time_before_final_ms": 1000,
+      "max_context_chars": 132,
+      "prompt_chars": 2192,
+      "output_chars": 40,
+      "observe_overhead_ms": [
+        0.051774
+      ],
+      "max_active_provider_calls": 1,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "ambiguous_prefix",
+      "category": "ambiguous_prefix",
+      "prediction_expected": false,
+      "provider_calls": 0,
+      "trigger_reasons": [
+        "insufficient_signal"
+      ],
+      "top1_anchor_useful": false,
+      "topk_anchor_useful": false,
+      "ready_revision_count": 0,
+      "final_readiness": null,
+      "candidate_change_observed": false,
+      "consistent_revision_count": 0,
+      "lead_time_before_final_ms": null,
+      "max_context_chars": 0,
+      "prompt_chars": 0,
+      "output_chars": 0,
+      "observe_overhead_ms": [
+        0.042233
+      ],
+      "max_active_provider_calls": 0,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "topic_change_midway",
+      "category": "topic_change_midway",
+      "prediction_expected": true,
+      "provider_calls": 2,
+      "trigger_reasons": [
+        "eligible",
+        "eligible"
+      ],
+      "top1_anchor_useful": true,
+      "topk_anchor_useful": true,
+      "ready_revision_count": 2,
+      "final_readiness": "tentative",
+      "candidate_change_observed": true,
+      "consistent_revision_count": 1,
+      "lead_time_before_final_ms": 1000,
+      "max_context_chars": 115,
+      "prompt_chars": 3929,
+      "output_chars": 67,
+      "observe_overhead_ms": [
+        0.051349,
+        0.226544
+      ],
+      "max_active_provider_calls": 1,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "correction_midway",
+      "category": "correction_midway",
+      "prediction_expected": true,
+      "provider_calls": 2,
+      "trigger_reasons": [
+        "eligible",
+        "eligible"
+      ],
+      "top1_anchor_useful": true,
+      "topk_anchor_useful": true,
+      "ready_revision_count": 2,
+      "final_readiness": "tentative",
+      "candidate_change_observed": true,
+      "consistent_revision_count": 1,
+      "lead_time_before_final_ms": 1000,
+      "max_context_chars": 106,
+      "prompt_chars": 3531,
+      "output_chars": 36,
+      "observe_overhead_ms": [
+        0.062039,
+        0.11266
+      ],
+      "max_active_provider_calls": 1,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "ordinary_statement",
+      "category": "ordinary_statement",
+      "prediction_expected": false,
+      "provider_calls": 0,
+      "trigger_reasons": [
+        "insufficient_signal"
+      ],
+      "top1_anchor_useful": false,
+      "topk_anchor_useful": false,
+      "ready_revision_count": 0,
+      "final_readiness": null,
+      "candidate_change_observed": false,
+      "consistent_revision_count": 0,
+      "lead_time_before_final_ms": null,
+      "max_context_chars": 0,
+      "prompt_chars": 0,
+      "output_chars": 0,
+      "observe_overhead_ms": [
+        0.037146
+      ],
+      "max_active_provider_calls": 0,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "backchannel",
+      "category": "backchannel",
+      "prediction_expected": false,
+      "provider_calls": 0,
+      "trigger_reasons": [
+        "backchannel"
+      ],
+      "top1_anchor_useful": false,
+      "topk_anchor_useful": false,
+      "ready_revision_count": 0,
+      "final_readiness": null,
+      "candidate_change_observed": false,
+      "consistent_revision_count": 0,
+      "lead_time_before_final_ms": null,
+      "max_context_chars": 0,
+      "prompt_chars": 0,
+      "output_chars": 0,
+      "observe_overhead_ms": [
+        0.025307
+      ],
+      "max_active_provider_calls": 0,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "hinglish_follow_up",
+      "category": "hinglish_common_multilingual",
+      "prediction_expected": true,
+      "provider_calls": 1,
+      "trigger_reasons": [
+        "eligible"
+      ],
+      "top1_anchor_useful": true,
+      "topk_anchor_useful": true,
+      "ready_revision_count": 1,
+      "final_readiness": "tentative",
+      "candidate_change_observed": false,
+      "consistent_revision_count": 1,
+      "lead_time_before_final_ms": 1000,
+      "max_context_chars": 57,
+      "prompt_chars": 1722,
+      "output_chars": 39,
+      "observe_overhead_ms": [
+        0.073354
+      ],
+      "max_active_provider_calls": 1,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "mistranscribed_anchor",
+      "category": "missing_or_mistranscribed_anchor",
+      "prediction_expected": true,
+      "provider_calls": 1,
+      "trigger_reasons": [
+        "eligible"
+      ],
+      "top1_anchor_useful": true,
+      "topk_anchor_useful": true,
+      "ready_revision_count": 1,
+      "final_readiness": "tentative",
+      "candidate_change_observed": false,
+      "consistent_revision_count": 1,
+      "lead_time_before_final_ms": 1000,
+      "max_context_chars": 73,
+      "prompt_chars": 1738,
+      "output_chars": 37,
+      "observe_overhead_ms": [
+        0.071906
+      ],
+      "max_active_provider_calls": 1,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    },
+    {
+      "case_id": "provider_final_waiting_merge",
+      "category": "provider_final_active_waiting_merge",
+      "prediction_expected": true,
+      "provider_calls": 1,
+      "trigger_reasons": [
+        "eligible"
+      ],
+      "top1_anchor_useful": true,
+      "topk_anchor_useful": true,
+      "ready_revision_count": 1,
+      "final_readiness": "tentative",
+      "candidate_change_observed": false,
+      "consistent_revision_count": 1,
+      "lead_time_before_final_ms": 1000,
+      "max_context_chars": 87,
+      "prompt_chars": 1752,
+      "output_chars": 45,
+      "observe_overhead_ms": [
+        0.048425
+      ],
+      "max_active_provider_calls": 1,
+      "memory_unchanged": true,
+      "pending_tasks_after_cleanup": 0
+    }
+  ],
+  "checks": {
+    "expected_cases_produced_prediction": true,
+    "suppressed_cases_made_no_calls": true,
+    "top_k_anchor_useful_for_expected_cases": true,
+    "stable_requires_repeat_and_finalization_signal": true,
+    "topic_changes_replace_candidates": true,
+    "stale_completion_rejected": true,
+    "one_active_provider_call_per_turn": true,
+    "hard_turn_call_ceiling_respected": true,
+    "context_bound_respected": true,
+    "prediction_did_not_mutate_memory": true,
+    "cleanup_left_no_tasks": true,
+    "ready_preceded_finalization": true
+  },
+  "all_checks_passed": true
+}

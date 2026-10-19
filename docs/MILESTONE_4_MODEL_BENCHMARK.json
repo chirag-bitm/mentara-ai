@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-12T18:59:35.094045+00:00",
+  "sdk": {
+    "package": "google-genai",
+    "version": "2.23.0"
+  },
+  "api": "Gemini Interactions API",
+  "store": false,
+  "tools": false,
+  "previous_interaction_id": false,
+  "corpus": [
+    {
+      "prompt_id": "quick_factual",
+      "assistance_kind": "question",
+      "text": "What is the practical difference between a process and a thread?"
+    },
+    {
+      "prompt_id": "technical_reasoning",
+      "assistance_kind": "request",
+      "text": "Explain why idempotency matters when retrying a payment API request."
+    },
+    {
+      "prompt_id": "speakable_guidance",
+      "assistance_kind": "request",
+      "text": "Give me a concise way to explain a project delay to a stakeholder."
+    },
+    {
+      "prompt_id": "missing_personal_context",
+      "assistance_kind": "question",
+      "text": "What measurable achievement did I deliver at my last employer?"
+    }
+  ],
+  "pricing_basis": {
+    "as_of": "2026-09-12",
+    "currency": "USD",
+    "unit": "per 1M tokens",
+    "source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "note": "Approximate paid Standard pricing; free-tier calls may be free. Output pricing includes thinking tokens."
+  },
+  "runs": [
+    {
+      "model": "gemini-3.8-flash",
+      "thinking_level": "low",
+      "prompt_id": "quick_factual",
+      "first_useful_text_ms": 2408,
+      "total_generation_ms": 4193,
+      "input_tokens": 219,
+      "output_tokens": 168,
+      "total_tokens": 387,
+      "estimated_paid_standard_cost_usd": 0.00079425,
+      "output": "The practical difference comes down to **memory** and **isolation**:\n\n*   **Process:** An independent, running program with its own dedicated memory space. If one process crashes, it doesn\u2019t take down the others. However, sharing data between processes requires extra setup (like IPC, sockets, or files), and creating them is resource-heavy.\n*   **Thread:** A worker *inside* a process. Multiple threads share the same process memory. They are fast to create and communicate easily, but if one thread corrupts memory or crashes, it can crash the entire process. You also have to manage concurrency issues like race conditions.\n\n**In short:** \nUse **processes** when you need safety, security, and strict isolation. Use **threads** when you need lightweight, fast tasks that constantly share data.",
+      "error": null,
+      "human_review": {
+        "relevance_1_to_5": null,
+        "technical_quality_1_to_5": null,
+        "speakability_1_to_5": null,
+        "unnecessary_verbosity_1_to_5": null
+      }
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "thinking_level": "minimal",
+      "prompt_id": "quick_factual",
+      "first_useful_text_ms": 1751,
+      "total_generation_ms": 3016,
+      "input_tokens": 219,
+      "output_tokens": 104,
+      "total_tokens": 323,
+      "estimated_paid_standard_cost_usd": 0.0003257,
+      "output": "The practical difference is memory isolation and resource sharing. \n\n* **A process** is an independent execution environment with its own dedicated memory space. If one process crashes, it generally doesn't affect others, but communication between processes (IPC) is more complex and slower.\n* **A thread** exists *within* a process and shares that process's memory space and resources. This makes communication between threads very fast and lightweight, but a critical error or crash in one thread can bring down the entire process.",
+      "error": null,
+      "human_review": {
+        "relevance_1_to_5": null,
+        "technical_quality_1_to_5": null,
+        "speakability_1_to_5": null,
+        "unnecessary_verbosity_1_to_5": null
+      }
+    },
+    {
+      "model": "gemini-3.8-flash",
+      "thinking_level": "low",
+      "prompt_id": "technical_reasoning",
+      "first_useful_text_ms": 4390,
+      "total_generation_ms": 6426,
+      "input_tokens": 220,
+      "output_tokens": 157,
+      "total_tokens": 377,
+      "estimated_paid_standard_cost_usd": 0.00075375,
+      "output": "Idempotency matters because network failures are ambiguous. \n\nIf your payment request times out, you can't be sure whether the server processed the payment and only failed to send the receipt, or if it never received the request at all.\n\nWithout idempotency:\n* **Double-charging happens:** Retrying a standard request might process the payment a second time.\n\nWith an **idempotency key** (a unique ID sent with the request):\n* **Safe retries:** The payment gateway recognizes the key from the first attempt.\n* **Exact replay:** If the payment already went through, the server simply returns the original successful response without charging the customer again. \n\nIt guarantees that retrying an operation produces the exact same result as calling it once.",
+      "error": null,
+      "human_review": {
+        "relevance_1_to_5": null,
+        "technical_quality_1_to_5": null,
+        "speakability_1_to_5": null,
+        "unnecessary_verbosity_1_to_5": null
+      }
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "thinking_level": "minimal",
+      "prompt_id": "technical_reasoning",
+      "first_useful_text_ms": 1702,
+      "total_generation_ms": 2778,
+      "input_tokens": 220,
+      "output_tokens": 90,
+      "total_tokens": 310,
+      "estimated_paid_standard_cost_usd": 0.000291,
+      "output": "Idempotency matters because it ensures that if a payment API request is retried\u2014due to a network timeout, dropped connection, or server error\u2014the payment is only processed once. \n\nWithout it, retrying a failed request could result in **double charging** the customer. An idempotent system uses a unique identifier (like an idempotency key) for each transaction so that duplicate requests return the original response without executing the payment a second time.",
+      "error": null,
+      "human_review": {
+        "relevance_1_to_5": null,
+        "technical_quality_1_to_5": null,
+        "speakability_1_to_5": null,
+        "unnecessary_verbosity_1_to_5": null
+      }
+    },
+    {
+      "model": "gemini-3.8-flash",
+      "thinking_level": "low",
+      "prompt_id": "speakable_guidance",
+      "first_useful_text_ms": 2356,
+      "total_generation_ms": 4641,
+      "input_tokens": 221,
+      "output_tokens": 168,
+      "total_tokens": 389,
+      "estimated_paid_standard_cost_usd": 0.00079575,
+      "output": "Use this 4-part structure: **The Update, The Cause, The Impact, and The Plan.**\n\n**Template:**\n> \"I want to share a quick update on [Project Name]. We\u2019ve hit an unexpected challenge with [brief reason], which will push our target completion from [original date] to [new date]. To resolve this, we are [key action being taken]. Our priority is delivering this right, and I\u2019ll send another progress update by [day/date].\"\n\n**Key tips:**\n* **Be direct:** State the new date upfront; don't bury it.\n* **Focus on the fix:** Spend 80% of your words on the solution, not the excuse.\n* **Set the next check-in:** Keeps you in control and reassures them.",
+      "error": null,
+      "human_review": {
+        "relevance_1_to_5": null,
+        "technical_quality_1_to_5": null,
+        "speakability_1_to_5": null,
+        "unnecessary_verbosity_1_to_5": null
+      }
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "thinking_level": "minimal",
+      "prompt_id": "speakable_guidance",
+      "first_useful_text_ms": 1717,
+      "total_generation_ms": 2608,
+      "input_tokens": 221,
+      "output_tokens": 51,
+      "total_tokens": 272,
+      "estimated_paid_standard_cost_usd": 0.0001938,
+      "output": "Keep it brief and focused on next steps:\n\n\"We've hit a brief delay with [Project/Task Name] due to [brief reason]. We are actively working on it and will have an updated timeline for you by [Day/Time].\"",
+      "error": null,
+      "human_review": {
+        "relevance_1_to_5": null,
+        "technical_quality_1_to_5": null,
+        "speakability_1_to_5": null,
+        "unnecessary_verbosity_1_to_5": null
+      }
+    },
+    {
+      "model": "gemini-3.8-flash",
+      "thinking_level": "low",
+      "prompt_id": "missing_personal_context",
+      "first_useful_text_ms": 7034,
+      "total_generation_ms": 7709,
+      "input_tokens": 218,
+      "output_tokens": 44,
+      "total_tokens": 262,
+      "estimated_paid_standard_cost_usd": 0.0003285,
+      "output": "I don't have access to your resume, work history, or past employer details yet. \n\nIf you share the company name and what you worked on, I can help you highlight and frame your measurable achievements.",
+      "error": null,
+      "human_review": {
+        "relevance_1_to_5": null,
+        "technical_quality_1_to_5": null,
+        "speakability_1_to_5": null,
+        "unnecessary_verbosity_1_to_5": null
+      }
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "thinking_level": "minimal",
+      "prompt_id": "missing_personal_context",
+      "first_useful_text_ms": 1729,
+      "total_generation_ms": 2385,
+      "input_tokens": 218,
+      "output_tokens": 22,
+      "total_tokens": 240,
+      "estimated_paid_standard_cost_usd": 0.0001204,
+      "output": "Verified personal context is unavailable, so I don't have details on your last employer or your achievements there.",
+      "error": null,
+      "human_review": {
+        "relevance_1_to_5": null,
+        "technical_quality_1_to_5": null,
+        "speakability_1_to_5": null,
+        "unnecessary_verbosity_1_to_5": null
+      }
+    }
+  ],
+  "summaries": [
+    {
+      "model": "gemini-3.8-flash",
+      "thinking_level": "low",
+      "successful_requests": 4,
+      "request_count": 4,
+      "median_first_useful_text_ms": 3399.0,
+      "median_total_generation_ms": 5533.5,
+      "estimated_paid_standard_cost_usd": 0.00267225
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "thinking_level": "minimal",
+      "successful_requests": 4,
+      "request_count": 4,
+      "median_first_useful_text_ms": 1723.0,
+      "median_total_generation_ms": 2693.0,
+      "estimated_paid_standard_cost_usd": 0.0009309
+    }
+  ],
+  "interpretation_warning": "This small benchmark informs a Mentara default; it does not establish general model superiority."
+}

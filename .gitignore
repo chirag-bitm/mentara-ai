@@ -1,0 +1,26 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.local.example
+backend/.stt-accuracy-state.json
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+npm-debug.log*
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "description": "Small deterministic prefix-to-next-turn corpus for M5.5 pipeline behavior. It is not a general prediction-accuracy benchmark.",
+  "cases": [
+    {
+      "case_id": "technical_follow_up",
+      "category": "technical_follow_up",
+      "memory": ["We use Redis as a low-latency caching layer."],
+      "prefixes": [
+        {
+          "text": "You mentioned Redis in your architecture",
+          "observed_ms": 1000,
+          "candidates": [
+            {"kind": "question", "text": "Why did you choose Redis?", "anchor_terms": ["redis", "choose"]},
+            {"kind": "question", "text": "What happens if Redis fails?", "anchor_terms": ["redis", "failure"]}
+          ]
+        },
+        {
+          "text": "You mentioned Redis in your architecture and why you chose it",
+          "observed_ms": 1600,
+          "is_final": true,
+          "awaiting_finalization": true,
+          "candidates": [
+            {"kind": "question", "text": "Why did you choose Redis?", "anchor_terms": ["redis", "choose"]},
+            {"kind": "question", "text": "What happens if Redis fails?", "anchor_terms": ["redis", "failure"]}
+          ]
+        }
+      ],
+      "eventual_next": "Why did you choose Redis instead of DynamoDB?",
+      "expected_anchors": ["redis", "choose"],
+      "prediction_expected": true,
+      "consistent_candidate_expected": true
+    },
+    {
+      "case_id": "behavioral_follow_up",
+      "category": "behavioral_general_follow_up",
+      "memory": ["A teammate disagreed with the rollout plan."],
+      "prefixes": [
+        {
+          "text": "Tell me about a time you handled team conflict",
+          "observed_ms": 1000,
+          "candidates": [
+            {"kind": "question", "text": "How did you resolve the conflict?", "anchor_terms": ["conflict", "resolve"]}
+          ]
+        }
+      ],
+      "eventual_next": "How did you resolve that conflict?",
+      "expected_anchors": ["conflict", "resolve"],
+      "prediction_expected": true
+    },
+    {
+      "case_id": "topic_return",
+      "category": "topic_return",
+      "memory": ["Redis handles cache reads.", "We later discussed deployment monitoring.", "The release uses canary stages."],
+      "prefixes": [
+        {
+          "text": "Coming back to Redis, what happens",
+          "observed_ms": 1000,
+          "candidates": [
+            {"kind": "question", "text": "What happens if Redis fails?", "anchor_terms": ["redis", "failure"]}
+          ]
+        }
+      ],
+      "eventual_next": "What happens if Redis becomes unavailable?",
+      "expected_anchors": ["redis", "failure"],
+      "prediction_expected": true
+    },
+    {
+      "case_id": "ambiguous_prefix",
+      "category": "ambiguous_prefix",
+      "memory": [],
+      "prefixes": [{"text": "So regarding that thing", "observed_ms": 1000}],
+      "eventual_next": "Could you clarify the deployment tradeoff?",
+      "expected_anchors": ["deployment"],
+      "prediction_expected": false
+    },
+    {
+      "case_id": "topic_change_midway",
+      "category": "topic_change_midway",
+      "memory": ["Redis backs the cache.", "PostgreSQL stores durable records."],
+      "prefixes": [
+        {
+          "text": "You mentioned Redis in your architecture",
+          "observed_ms": 1000,
+          "candidates": [{"kind": "question", "text": "Why Redis?", "anchor_terms": ["redis"]}]
+        },
+        {
+          "text": "Actually changing topic, what happens when PostgreSQL fails",
+          "observed_ms": 1600,
+          "candidates": [{"kind": "question", "text": "How does PostgreSQL recovery work?", "anchor_terms": ["postgresql", "recovery"]}]
+        }
+      ],
+      "eventual_next": "How does PostgreSQL recover after a failure?",
+      "expected_anchors": ["postgresql", "recovery"],
+      "prediction_expected": true,
+      "candidate_change_expected": true
+    },
+    {
+      "case_id": "correction_midway",
+      "category": "correction_midway",
+      "memory": ["The architecture comparison covered Redis and DynamoDB."],
+      "prefixes": [
+        {
+          "text": "Why did you choose Redis for this system",
+          "observed_ms": 1000,
+          "candidates": [{"kind": "question", "text": "Why Redis?", "anchor_terms": ["redis"]}]
+        },
+        {
+          "text": "Correction, I meant DynamoDB, why did you choose it",
+          "observed_ms": 1600,
+          "candidates": [{"kind": "question", "text": "Why DynamoDB?", "anchor_terms": ["dynamodb"]}]
+        }
+      ],
+      "eventual_next": "Why did you choose DynamoDB?",
+      "expected_anchors": ["dynamodb"],
+      "prediction_expected": true,
+      "candidate_change_expected": true
+    },
+    {
+      "case_id": "ordinary_statement",
+      "category": "ordinary_statement",
+      "memory": [],
+      "prefixes": [{"text": "The deployment completed successfully yesterday.", "observed_ms": 1000}],
+      "eventual_next": "The speaker continued with another statement.",
+      "expected_anchors": [],
+      "prediction_expected": false
+    },
+    {
+      "case_id": "backchannel",
+      "category": "backchannel",
+      "memory": [],
+      "prefixes": [{"text": "yeah", "observed_ms": 1000}],
+      "eventual_next": "The other speaker continued.",
+      "expected_anchors": [],
+      "prediction_expected": false
+    },
+    {
+      "case_id": "hinglish_follow_up",
+      "category": "hinglish_common_multilingual",
+      "memory": ["Redis is the primary cache."],
+      "prefixes": [
+        {
+          "text": "Redis fail ho jaye to kya hoga",
+          "observed_ms": 1000,
+          "candidates": [{"kind": "question", "text": "Redis recovery kaise hogi?", "anchor_terms": ["redis", "recovery"]}]
+        }
+      ],
+      "eventual_next": "Redis failure ke baad recovery kaise hogi?",
+      "expected_anchors": ["redis", "recovery"],
+      "prediction_expected": true
+    },
+    {
+      "case_id": "mistranscribed_anchor",
+      "category": "missing_or_mistranscribed_anchor",
+      "memory": ["Redis failure handling uses a fallback cache."],
+      "prefixes": [
+        {
+          "text": "What happens if red is fails",
+          "observed_ms": 1000,
+          "candidates": [{"kind": "question", "text": "What failure handling is used?", "anchor_terms": ["failure"]}]
+        }
+      ],
+      "eventual_next": "What happens if Redis fails?",
+      "expected_anchors": ["failure"],
+      "prediction_expected": true
+    },
+    {
+      "case_id": "provider_final_waiting_merge",
+      "category": "provider_final_active_waiting_merge",
+      "memory": ["The cache has a multi-region failover path."],
+      "audio_source": "system",
+      "speaker_role": "remote_speaker",
+      "prefixes": [
+        {
+          "text": "Can you explain how the cache failover works",
+          "observed_ms": 1000,
+          "is_final": true,
+          "awaiting_finalization": true,
+          "candidates": [{"kind": "request", "text": "Explain the cache failover path.", "anchor_terms": ["cache", "failover"]}]
+        }
+      ],
+      "eventual_next": "Can you explain how the cache failover works?",
+      "expected_anchors": ["cache", "failover"],
+      "prediction_expected": true
+    }
+  ]
+}

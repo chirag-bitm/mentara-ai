@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-29T09:19:33.816367+00:00",
+  "sdk": "google-genai==2.23.0",
+  "model": "gemini-2.5-flash-lite",
+  "case_id": "technical_follow_up",
+  "max_calls": 1,
+  "actual_calls": 1,
+  "max_candidates": 1,
+  "max_output_tokens": 256,
+  "thinking": "default_off",
+  "store": false,
+  "tools": false,
+  "previous_interaction_id": false,
+  "interpretation": "One non-sensitive sample only; compare completed-result latency, not first-token time. No live-speaker usefulness or general prediction accuracy is established; no production change.",
+  "run": {
+    "error": "probe_failed"
+  }
+}

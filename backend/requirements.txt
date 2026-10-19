@@ -1,0 +1,5 @@
+fastapi[standard]>=0.116,<1.0
+anyio>=4.10,<5.0
+google-genai>=2.3,<3.0
+pydantic-settings>=2.10,<3.0
+websockets>=15,<17
